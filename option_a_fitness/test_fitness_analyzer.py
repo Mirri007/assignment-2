@@ -1,7 +1,11 @@
 import unittest
 
-from fitness_analyzer import FitnessSessionAnalyzer
-from data_generator import generate_fitness_data
+try:
+    from .fitness_analyzer import FitnessSessionAnalyzer
+    from .data_generator import generate_fitness_data
+except ImportError:  # pragma: no cover
+    from fitness_analyzer import FitnessSessionAnalyzer
+    from data_generator import generate_fitness_data
 
 
 # These tests cover the required exercise scenarios and verify that the session
