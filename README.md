@@ -4,10 +4,10 @@ This project reads fitness session data, validates each reading, and classifies 
 
 ## Project structure
 
-- `option_a_fitness/fitness_analyzer.py` contains the participant model, observation validation, and classification logic.
+- `option_a_fitness/fitness_analyzer.py` contains the participant model, observation validation, and session classification logic.
 - `option_a_fitness/csv_fitness_loader.py` loads participant and session records from CSV files.
 - `sample_data.py` generates sample fitness sessions for testing and demo runs.
-- `data/option_a_fitness/` contains the CSV datasets used by the assignment.
+- `data/option_a_fitness/` contains the CSV datasets used in the assignment.
 
 ## Run the application
 
@@ -24,7 +24,7 @@ python3 -m unittest -v
 ## Example: generate and analyze 50 sample sessions
 
 ```bash
-python3 -c "from sample_data import generate_fitness_data; from option_a_fitness.fitness_analyzer import FitnessSessionAnalyzer; results=[]; 
+python3 -c "from sample_data import generate_fitness_data; from option_a_fitness.fitness_analyzer import FitnessSessionAnalyzer; results=[];
 for i in range(50):
     profile, observations = generate_fitness_data(participant_id=f'P{i:03d}', scenario='random', seed=i, number_of_windows=12)
     analyzer = FitnessSessionAnalyzer(profile, observations)
@@ -32,7 +32,7 @@ for i in range(50):
 print(f'Analyzed {len(results)} sessions'); print(results[:5])"
 ```
 
-This is useful for creating a larger sample batch and checking how the classifier behaves across many generated sessions.
+This is useful for generating a larger data sample and checking how the classifier behaves across many sessions.
 
 ## Example: load the CSV data
 
@@ -43,5 +43,5 @@ python3 -c "from option_a_fitness.csv_fitness_loader import load_fitness_data_fr
 ## Notes
 
 - The project uses only the Python standard library.
-- There are no third-party dependencies required for this assignment.
+- No third-party dependencies are required for this assignment.
 
